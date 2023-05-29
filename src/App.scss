@@ -1,38 +1,111 @@
-.App {
+.arrow {
+  border: solid #555;
+  border-width: 0px 7px 7px 0;
+  display: inline-block;
+  padding: 7px;
+  transition: all 0.5s;
+
+  &:not(.disabled):hover {
+    border-color: #000;
+  }
+}
+
+.right {
+  transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+}
+
+.title {
+  display: block;
+  margin: 10px 0;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+section {
+  display: block;
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px 0;
+  background-color: #fff;
+  border-radius: 10px;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.container {
+  position: relative;
+  width: 90%;
+  max-width: 960px;
+  margin: 0 auto;
+
+  img {
+    display: block;
+    min-width: 100%;
+    max-width: 100%;
+    object-fit: contain;
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  .arrow.left {
+    position: relative;
+    left: -3%;
+    left: 0;
+    left: 5px;
+    cursor: pointer;
+    z-index: 99;
   }
-  to {
-    transform: rotate(360deg);
+
+  .arrow.right {
+    position: relative;
+    right: -3%;
+    right: 0;
+    right: 5px;
+    cursor: pointer;
+    z-index: 99;
+  }
+
+  .arrow.disabled {
+    cursor: not-allowed;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    ul.dot-container {
+      display: inline-flex;
+      justify-content: center;
+      padding-left: 0;
+      gap: 10px;
+
+      li {
+        display: block;
+        width: 10px;
+        height: 10px;
+        border: 1px solid #000;
+        background-color: #fff;
+        border-radius: 50%;
+        transition: all 0.5s;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #555;
+        }
+
+        &.selected {
+          background-color: #000;
+        }
+      }
+    }
   }
 }
